@@ -1,15 +1,18 @@
 let roles = require('roles'),
+    Colony = require('colony'),
     Lair = require('lair');
 
 let agent = function (name, hostName) {
     var self = this,
         pk = name,
         hiveName = hostName,
-        hive = Lair(hiveName);
+        hive = Lair(hiveName),
+        colony = Colony(hive);
 
     self.getId = () => pk;
 
     self.initAgent = () => {
+        console.log('AGENTO');
         establishHive(hive);
     };
     self.initAgent();
