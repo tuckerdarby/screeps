@@ -1,10 +1,10 @@
 let roles = require('roles'),
     roleList = ['harvester', 'upgrader', 'builder'],
     roleRoster = {
-    'harvester': 20,
-    'upgrader': 5,
-    'builder': 4
-};
+        'harvester': 20,
+        'upgrader': 5,
+        'builder': 4
+    };
 let Nest = require('nest');
 
 let lair = function (name) {
@@ -15,15 +15,29 @@ let lair = function (name) {
         managedWorkers = {},
         managedSources = [];
 
+    self.getId = () => pk;
+
+    self.getSourceManagers = () => managedSources;
+    self.getSources = () => {return managedSources.map((manager) => manager.source);};
+    self.addSource = (source) => addSource(source);
+
+    self.runLair = () => {
+        manageSources(managedSources);
+        nest.runNest();
+    };
+
+    self.spawnCreep = (data) => nest.nestCreep(data);
+    self.getSpawn = () => spawn;
+    self.getRoom = () => spawn.room;
+
     self.initNest = () => {
     };
     self.initNest();
 
-    self.getId = () => pk;
+    return self;
 
-    self.addSource = (source) => addSource(source);
-    self.runLair = () => {
-        managedSources.forEach((manager) => {
+    function manageSources(sources) {
+        sources.forEach((manager) => {
             if (manager.workers.length < roleRoster.harvester) {
                 let workerData = makeWorkerData(manager);
                 manager.buildCount += 1;
@@ -31,13 +45,7 @@ let lair = function (name) {
                 nest.nestCreep(workerData);
             }
         });
-        nest.runNest();
-    };
-
-    self.spawnCreep = (data) => nest.nestCreep(data);
-    self.getSpawn = () => spawn;
-
-    return self;
+    }
 
     function addSource(source) {
         let manager = {

@@ -7,12 +7,11 @@ let agent = function (name, hostName) {
         pk = name,
         hiveName = hostName,
         hive = Lair(hiveName),
-        colony = Colony(hive);
+        colony = Colony(hiveName);
 
     self.getId = () => pk;
 
     self.initAgent = () => {
-        console.log('AGENTO');
         establishHive(hive);
     };
     self.initAgent();
@@ -25,14 +24,15 @@ let agent = function (name, hostName) {
     return self;
 
     function establishHive() {
-        console.log('establishing hive');
         let source = hive.getSpawn().pos.findClosestByRange(FIND_SOURCES);
         hive.addSource(source);
+        colony.beginColony(hive);
     }
 
     function runRoles(creeps) {
         for (var creep in creeps) {
             roles[creeps[creep].memory.role].run(creeps[creep]);
+
         }
     }
 };

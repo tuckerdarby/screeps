@@ -9,13 +9,10 @@ let colony = function (name) {
     self.beginColony = (main) => {
         base = main;
         lairs.push(base);
-        console.log('beginning colony');
-        sourceCheck();
+        //sourceCheck();
     };
 
-    self.initColony = () => {
-        console.log('establishing colony');
-    };
+    self.initColony = () => {};
     self.initColony();
 
     self.getId = () => pk;
@@ -23,41 +20,53 @@ let colony = function (name) {
     return self;
 
     function sourceCheck() {
-        let sources = getInactiveSources(base.room),
-            testClosests = [];
+        let sources = getInactiveSources(base.getRoom(), lairs);
         sources.forEach((source) => {
-            var positions = getSamplePositions(source.pos, 5),
-                closest;
-            positions = _.filter(positions, (position) => (Game.map.getTerrainAt(position) == 'plain'));
-            closest = source.pos.findClosestByPath(positions);
-            testClosests.push(closest);
+            var lair = establishLair(source);
+            lairs.push(lair);
         });
-        testClosests.forEach((c) => {console.log(c);});
-    }
-
-    function establishLair(source) {
-
     }
 };
 
 module.exports = colony;
 
-function getInactiveSources(room) {
-    var spawns = room.find(FIND_MY_SPAWNS);
-    spawns.forEach((spawn) => {
-        var closest = spawn.pos.findClosestByRange(FIND_SOURCES),
-            index = (closest ? sources.indexOf(closest) : -1);
-        if (index > -1)
-            sources.splice(index, 1);
-    });
+function establishLair(source) {
+    var spawnPosition = getSpawnPosition(source);
+    console.log(spawnPosition);
+    //spawnPosition.createConstructionSite(STRUCTURE_SPAWN);
 }
 
-function getSamplePositions(pos, range) {
+//Returns a RoomPosition Object that was selected based on the closest by path with plain terrain in a square pattern
+function getSpawnPosition(source) {
+    var positions = getSamplePositions(source.room, source.pos, 5),
+        closest;
+    positions = _.filter(positions, (position) => (Game.map.getTerrainAt(position) == 'plain'));
+    closest = source.pos.findClosestByPath(positions);
+    return closest;
+}
+
+function getInactiveSources(room, bases) {
+    var usedSources = getActiveSources(bases),
+        roomSources = room.find(FIND_SOURCES);
+    return _.filter(roomSources, (source) => usedSources.indexOf(source.id) == -1);
+}
+
+//Returns ids of Managed Sources
+function getActiveSources(bases) {
+    var sources = [];
+    bases.forEach((base) => {sources = sources.concat(base.getSources())});
+    return sources;
+}
+
+function getSamplePositions(room, pos, range) {
     var positions = [];
     for (var x = -1; x < 2; x++) {
         for (var y = -1; y < 2; y++) {
-            var loc = new RoomPosition(pos.x + (x*range), pos.y + (y*range), pos.room.name);
-            positions.push(loc);
+            var px = pos.x + (x*range),
+                py = pos.y + (y*range),
+                loc = (px > -1 && py > -1 ? new RoomPosition(pos.x + (x*range), pos.y + (y*range), room.name) : false);
+            if (loc != false)
+                positions.push(loc);
         }
     }
     return positions;
