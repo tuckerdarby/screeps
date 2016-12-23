@@ -1,0 +1,167 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs',
+1 verbose cli   '/usr/lib/node_modules/npm/bin/npm-cli.js',
+1 verbose cli   'update' ]
+2 info using npm@3.10.8
+3 info using node@v6.9.1
+4 silly mapToRegistry name main.js
+5 silly mapToRegistry using default registry
+6 silly mapToRegistry registry https://registry.npmjs.org/
+7 silly mapToRegistry data Result {
+7 silly mapToRegistry   raw: 'main.js',
+7 silly mapToRegistry   scope: null,
+7 silly mapToRegistry   escapedName: 'main.js',
+7 silly mapToRegistry   name: 'main.js',
+7 silly mapToRegistry   rawSpec: '',
+7 silly mapToRegistry   spec: 'latest',
+7 silly mapToRegistry   type: 'tag' }
+8 silly mapToRegistry uri https://registry.npmjs.org/main.js
+9 silly mapToRegistry name screeps-api
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'screeps-api',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   escapedName: 'screeps-api',
+12 silly mapToRegistry   name: 'screeps-api',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri https://registry.npmjs.org/screeps-api
+14 verbose request uri https://registry.npmjs.org/main.js
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 8:30:24 PM
+17 verbose request id 9d4be1c546735052
+18 http request GET https://registry.npmjs.org/main.js
+19 verbose request uri https://registry.npmjs.org/screeps-api
+20 verbose request no auth needed
+21 info attempt registry request try #1 at 8:30:24 PM
+22 verbose etag W/"5827a0bb-3443"
+23 verbose lastModified Sat, 12 Nov 2016 23:07:39 GMT
+24 http request GET https://registry.npmjs.org/screeps-api
+25 http 304 https://registry.npmjs.org/screeps-api
+26 verbose headers { date: 'Mon, 05 Dec 2016 03:30:25 GMT',
+26 verbose headers   via: '1.1 varnish',
+26 verbose headers   'cache-control': 'max-age=300',
+26 verbose headers   etag: 'W/"5827a0bb-3443"',
+26 verbose headers   age: '0',
+26 verbose headers   connection: 'keep-alive',
+26 verbose headers   'x-served-by': 'cache-den6024-DEN',
+26 verbose headers   'x-cache': 'MISS',
+26 verbose headers   'x-cache-hits': '0',
+26 verbose headers   'x-timer': 'S1480908625.453233,VS0,VE256',
+26 verbose headers   vary: 'Accept-Encoding' }
+27 silly get cb [ 304,
+27 silly get   { date: 'Mon, 05 Dec 2016 03:30:25 GMT',
+27 silly get     via: '1.1 varnish',
+27 silly get     'cache-control': 'max-age=300',
+27 silly get     etag: 'W/"5827a0bb-3443"',
+27 silly get     age: '0',
+27 silly get     connection: 'keep-alive',
+27 silly get     'x-served-by': 'cache-den6024-DEN',
+27 silly get     'x-cache': 'MISS',
+27 silly get     'x-cache-hits': '0',
+27 silly get     'x-timer': 'S1480908625.453233,VS0,VE256',
+27 silly get     vary: 'Accept-Encoding' } ]
+28 verbose etag https://registry.npmjs.org/screeps-api from cache
+29 verbose get saving screeps-api to /home/tuck/.npm/registry.npmjs.org/screeps-api/.cache.json
+30 verbose correctMkdir /home/tuck/.npm correctMkdir not in flight; initializing
+31 http 200 https://registry.npmjs.org/main.js
+32 verbose headers { server: 'nginx/1.10.1',
+32 verbose headers   'content-type': 'application/json',
+32 verbose headers   'last-modified': 'Thu, 02 Aug 2012 13:44:34 GMT',
+32 verbose headers   etag: 'W/"501a8442-584"',
+32 verbose headers   'content-encoding': 'gzip',
+32 verbose headers   'cache-control': 'max-age=300',
+32 verbose headers   'content-length': '591',
+32 verbose headers   'accept-ranges': 'bytes',
+32 verbose headers   date: 'Mon, 05 Dec 2016 03:30:29 GMT',
+32 verbose headers   via: '1.1 varnish',
+32 verbose headers   age: '0',
+32 verbose headers   connection: 'keep-alive',
+32 verbose headers   'x-served-by': 'cache-den6027-DEN',
+32 verbose headers   'x-cache': 'MISS',
+32 verbose headers   'x-cache-hits': '0',
+32 verbose headers   'x-timer': 'S1480908629.365357,VS0,VE145',
+32 verbose headers   vary: 'Accept-Encoding' }
+33 silly get cb [ 200,
+33 silly get   { server: 'nginx/1.10.1',
+33 silly get     'content-type': 'application/json',
+33 silly get     'last-modified': 'Thu, 02 Aug 2012 13:44:34 GMT',
+33 silly get     etag: 'W/"501a8442-584"',
+33 silly get     'content-encoding': 'gzip',
+33 silly get     'cache-control': 'max-age=300',
+33 silly get     'content-length': '591',
+33 silly get     'accept-ranges': 'bytes',
+33 silly get     date: 'Mon, 05 Dec 2016 03:30:29 GMT',
+33 silly get     via: '1.1 varnish',
+33 silly get     age: '0',
+33 silly get     connection: 'keep-alive',
+33 silly get     'x-served-by': 'cache-den6027-DEN',
+33 silly get     'x-cache': 'MISS',
+33 silly get     'x-cache-hits': '0',
+33 silly get     'x-timer': 'S1480908629.365357,VS0,VE145',
+33 silly get     vary: 'Accept-Encoding' } ]
+34 verbose get saving main.js to /home/tuck/.npm/registry.npmjs.org/main.js/.cache.json
+35 verbose correctMkdir /home/tuck/.npm correctMkdir not in flight; initializing
+36 info outdated updating [ { dep:
+36 info outdated      Node {
+36 info outdated        id: 1,
+36 info outdated        package: [Object],
+36 info outdated        path: '/home/tuck/.config/Screeps/scripts/screeps.com/node_modules/main.js',
+36 info outdated        realpath: '/home/tuck/.config/Screeps/scripts/screeps.com/node_modules/main.js',
+36 info outdated        parent: [Object],
+36 info outdated        isLink: false,
+36 info outdated        children: [],
+36 info outdated        error: [Object],
+36 info outdated        loaded: false,
+36 info outdated        requiredBy: [],
+36 info outdated        requires: [],
+36 info outdated        missingDeps: {},
+36 info outdated        missingDevDeps: {},
+36 info outdated        phantomChildren: {},
+36 info outdated        location: '/main.js',
+36 info outdated        userRequired: false,
+36 info outdated        existing: false,
+36 info outdated        isTop: false },
+36 info outdated     depname: 'main.js',
+36 info outdated     current: undefined,
+36 info outdated     wanted: '0.0.1',
+36 info outdated     latest: '0.0.1',
+36 info outdated     req: '*',
+36 info outdated     what: 'main.js@0.0.1' } ]
+37 silly loadCurrentTree Starting
+38 silly install loadCurrentTree
+39 silly install readLocalPackageData
+40 silly rollbackFailedOptional Starting
+41 silly rollbackFailedOptional Finishing
+42 silly runTopLevelLifecycles Finishing
+43 silly install printInstalled
+44 verbose stack Error: Failed to parse json
+44 verbose stack Trailing comma in object at 5:1
+44 verbose stack }
+44 verbose stack ^
+44 verbose stack     at parseError (/usr/lib/node_modules/npm/node_modules/read-package-json/read-json.js:390:11)
+44 verbose stack     at parseJson (/usr/lib/node_modules/npm/node_modules/read-package-json/read-json.js:79:23)
+44 verbose stack     at /usr/lib/node_modules/npm/node_modules/read-package-json/read-json.js:48:5
+44 verbose stack     at /usr/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:78:16
+44 verbose stack     at tryToString (fs.js:455:3)
+44 verbose stack     at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:442:12)
+45 verbose cwd /home/tuck/.config/Screeps/scripts/screeps.com
+46 error Linux 3.19.0-74-generic
+47 error argv "/usr/bin/nodejs" "/usr/lib/node_modules/npm/bin/npm-cli.js" "update"
+48 error node v6.9.1
+49 error npm  v3.10.8
+50 error file /home/tuck/.config/Screeps/scripts/screeps.com/package.json
+51 error code EJSONPARSE
+52 error Failed to parse json
+52 error Trailing comma in object at 5:1
+52 error }
+52 error ^
+53 error File: /home/tuck/.config/Screeps/scripts/screeps.com/package.json
+54 error Failed to parse package.json data.
+54 error package.json must be actual JSON, not just JavaScript.
+54 error
+54 error This is not a bug in npm.
+54 error Tell the package author to fix their package.json file. JSON.parse
+55 verbose exit [ 1, true ]
